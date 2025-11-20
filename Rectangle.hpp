@@ -16,8 +16,9 @@ template <typename T>
 class Rectangle : public Forme<T>
 {
 public:
-    // Constructeur
-    Rectangle();
+    // Constructeurs
+    Rectangle() : Forme<T>(), h(T()), l(T()) {};
+    Rectangle(PointT<T> const &p, T h, T l) : Forme<T>(p), h(h), l(l) {}
 
     // Accesseurs
     T getH() const { return this->h; }
