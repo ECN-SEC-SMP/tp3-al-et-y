@@ -1,3 +1,0 @@
-/home/andre-louis/tp3-al-et-y/build/CMakeFiles/TP3.dir
-/home/andre-louis/tp3-al-et-y/build/CMakeFiles/edit_cache.dir
-/home/andre-louis/tp3-al-et-y/build/CMakeFiles/rebuild_cache.dir
