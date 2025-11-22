@@ -27,11 +27,11 @@ public:
     void setCentre(PointT<T> value);
 
     // Méthodes
-    template <typename TPerimetre>
-    virtual TPerimetre perimetre() = 0; // Périmètre de la forme, fonction virtuelle
+    //template <typename TPerimetre>
+    //virtual TPerimetre perimetre() = 0; // Périmètre de la forme, fonction virtuelle
 
-    template <typename TSurface>
-    virtual TSurface surface() = 0; // Aire de la surface, fonction virtuelle
+    //template <typename TSurface>
+    //virtual TSurface surface() = 0; // Aire de la surface, fonction virtuelle
 
     friend std::ostream &operator<< <T>(std::ostream &, Forme const &);
 };

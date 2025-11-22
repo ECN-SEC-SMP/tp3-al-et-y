@@ -1,0 +1,249 @@
+% Hyperliens pour doc
+% https://www.overleaf.com/learn/latex/Positioning_images_and_tables <== Images, tableaux
+% https://www.physicsread.com/latex-mu-and-nu-symbol/ <== Formules maths
+% https://www.overleaf.com/learn/latex/Code_listing <== Morceaux de code
+
+\documentclass[11pt]{article}
+
+% Librairies
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{xcolor}
+%\usepackage[french]{babel}
+
+% Setup du document (paramètres)
+\geometry{hmargin=2.3cm,vmargin=3cm}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+% Setup du document (texte)
+\setlength{\parskip}{5pt}
+\renewcommand{\contentsname}{Table des matières}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+
+% Début de la rédaction
+\begin{document}
+
+\pagestyle{fancy}
+
+\begin{titlepage}
+\centering
+{\Huge\bfseries Compte rendu CPP n°3}
+
+\vspace{1cm}
+
+{\huge Templates}
+
+\vspace{2cm}
+
+{\large STEPHANT André-Louis, COUSSEAU Yanis}
+
+\vspace{2cm}
+
+% Insérer les images ici
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{Ressources/LogoCN_RVB.jpg}
+\end{figure}
+
+\vfill
+
+{Ecole Centrale de Nantes - Systèmes embarqués Communicants (SEC)}
+\end{titlepage}
+
+% Clear all headers and footers (see also \fancyhf{})
+\fancyhead{}
+
+% Set the Centre header location but do not specify O or E
+\fancyhead[L]{STEPHANT-COUSSEAU}
+\fancyhead[C]{SEC2}
+\fancyhead[R]{17/11/2025}
+
+% Set the Left footer location but do not specify O or E
+
+
+\sloppy
+
+\begin{center}
+\rule{8cm}{1pt}
+\end{center}
+
+% Table des matières
+\tableofcontents
+
+\begin{center}
+\rule{8cm}{1pt}
+\end{center}
+
+\section{Introduction}
+Ce troisième TP à pour objectif de nous faire travailler une nouvelle notion en C++ : les templates.
+Pour rappel, un template est une manière de simplifier un code, permettant à une fonction d'accepter différents types de paramètres en entrée.
+
+Dans ce TP, nous allons utiliser cette notion de templates avec des classes, ainsi que des surcharges d'opérateurs. 
+L'objectif est de mêler plusieurs concepts différents afin de mener à bien un projet.
+
+Dans un premier temps, nous allons créer une classe Point template. Puis, nous coderons une classe forme, dérivée de la classe précédente.
+Ensuite, nous utiliserons une classe rectangle, héritée de la classe forme.
+Enfin, nous spécialisrons nos classe, puis créerons une liste de forme.
+
+Nous concluerons ce rendu en mettant en lumière les différentes compétences sollicitées pour ce TP.
+
+\clearpage
+
+\section{Création d'une classe point template}
+Dans cette première partie, nous allons initialiser le premier template de notre projet : la classe point.
+Pour rappel, voici le cahier des charges associé à cette classe :
+
+\rule{4cm}{1pt}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{Ressources/CDC partie 1.png}
+    \caption{Cahier des charges partie 1}
+\end{figure}
+
+Par conséquent, on crée un fichier .hpp afin de répondre au cahier des charges :
+
+\begin{lstlisting}[language=C++, caption=Fichier PointT.hpp]
+Ctrl C + Ctrl V le code ICI
+\end{lstlisting}
+
+On ajoute ensuite des jeux de test afin de valider le bon fonctionnement du programme :
+
+\begin{center}
+\rule{16cm}{1pt}
+\end{center}
+
+\textbf{Donnée d'entrée : } NA
+
+\rule{4cm}{0,2pt}
+
+\textbf{Résultat attendu : } NA
+
+\rule{4cm}{0,2pt}
+
+\textbf{Résultat obtenu : } NA
+
+\begin{center}
+\rule{16cm}{1pt}
+\end{center}
+
+On peut donc valider que la classe fonctionne comme attendue.
+
+\clearpage
+
+\section{Formes géométriques abstraites}
+Dans cette seconde partie, nous allons créer une classe afin de manupiler une forme, constituée de points. 
+L'objectif est de réaliser une forme centrée sur un point particulier (initialisé dans la partie précédente).
+Pour rappel, voici les instructions données dans le sujet de TP associées à cette classe :
+\rule{4cm}{1pt}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{Ressources/CDC partie 2.png}
+    \caption{Cahier des charges partie 1}
+\end{figure}
+
+Par conséquent, on crée un fichier .hpp afin de répondre au cahier des charges :
+
+\begin{lstlisting}[language=C++, caption=Fichier Forme.hpp]
+Ctrl C + Ctrl V le code ICI
+\end{lstlisting}
+
+On ajoute ensuite des jeux de test afin de valider le bon fonctionnement du programme :
+
+\begin{center}
+\rule{16cm}{1pt}
+\end{center}
+
+\textbf{Donnée d'entrée : } NA
+
+\rule{4cm}{0,2pt}
+
+\textbf{Résultat attendu : } NA
+
+\rule{4cm}{0,2pt}
+
+\textbf{Résultat obtenu : } NA
+
+\begin{center}
+\rule{16cm}{1pt}
+\end{center}
+
+On peut donc valider que la classe fonctionne comme attendue.
+
+\clearpage
+
+\section{Formes géométriques concrètes}
+On veut ici réaliser des formes géométriques concrètes. C'est à dire une forme consituée de points, avec une longueur et une hauteur donnée.
+On va créer ici deux classe (rectangle et carré, avec notion d'héritage pour cette dernière).
+
+On crée donc deux fichiers .hpp :
+
+\begin{lstlisting}[language=C++, caption=Fichier Rectangle.hpp]
+Ctrl C + Ctrl V le code ICI
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++, caption=Fichier Carre.hpp]
+Ctrl C + Ctrl V le code ICI
+\end{lstlisting}
+
+On ajoute ensuite des jeux de test afin de valider le bon fonctionnement du programme :
+
+\begin{center}
+\rule{16cm}{1pt}
+\end{center}
+
+\textbf{Donnée d'entrée : } NA
+
+\rule{4cm}{0,2pt}
+
+\textbf{Résultat attendu : } NA
+
+\rule{4cm}{0,2pt}
+
+\textbf{Résultat obtenu : } NA
+
+\begin{center}
+\rule{16cm}{1pt}
+\end{center}
+
+On peut donc valider que la classe fonctionne comme attendue.
+
+\clearpage
+
+\section{Conclusion}
+Ce TP nous a permis de découvrir et d'approfondir la notion de template en C++.
+Nous avons pu mettre en pratique cette notion à travers la création de plusieurs classes, ainsi que l'utilisation de l'héritage et des surcharges d'opérateurs.
+
+Nous avons également renforcé notre compréhension des concepts liés au classes, ainsi que du langage C++ d'une manière générale.
+Ces notions nous serons importantes pour l'avenir, notamment dans le cadre du projet de fin de module à venir.
+\end{document}
