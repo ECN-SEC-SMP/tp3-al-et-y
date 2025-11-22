@@ -1,7 +1,5 @@
 #pragma once
 
-
-// EN COURS
 #include "Rectangle.hpp"
 #include <iostream>
 
@@ -11,7 +9,7 @@ class Carre;
 template <typename T>
 std::ostream &operator<<(std::ostream &, Carre<T> const &);
 
-// Classe Carré (hérite de Rectangle) : impose h == l
+// Classe Carré héritée de Rectangle, on force la largeur et la hauteur à la même valeur
 template <typename T>
 class Carre : public Rectangle<T>
 {
@@ -21,10 +19,10 @@ public:
     Carre(PointT<T> const &p, T cote) : Rectangle<T>(p, cote, cote) {}
     virtual ~Carre() = default;
 
-    // Accesseur pour le côté
+    // Accesseur
     T getCote() const { return this->getH(); }
 
-    // Mutateur qui maintient h == l
+    // Mutateur
     void setCote(T cote)
     {
         Rectangle<T>::setH(cote);
@@ -44,10 +42,11 @@ public:
     }
 };
 
+// Surcharge de l'opérateur d'affichage pour la classe Carre
 template <typename T>
 std::ostream &operator<<(std::ostream &o, Carre<T> const &c)
 {
-    o << "Carre: origine=(" << c.getPoint().getX() << "," << c.getPoint().getY()
+    o << "Carré: origine=(" << c.getPoint().getX() << "," << c.getPoint().getY()
       << "), cote=" << c.getCote();
     return o;
 }
