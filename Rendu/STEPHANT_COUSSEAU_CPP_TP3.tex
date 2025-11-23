@@ -6,6 +6,7 @@
 \documentclass[11pt]{article}
 
 % Librairies
+\usepackage[french]{babel}
 \usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{wrapfig}
@@ -13,7 +14,7 @@
 \usepackage{fancyhdr}
 \usepackage{listings}
 \usepackage{xcolor}
-%\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
 
 % Setup du document (paramètres)
 \geometry{hmargin=2.3cm,vmargin=3cm}
@@ -40,6 +41,46 @@
     showstringspaces=false,
     showtabs=false,                  
     tabsize=2
+}
+
+% Necessaire pour supporter les accents dans les listings 
+\lstset{
+    inputencoding = utf8,  % Input encoding
+    extendedchars = true,  % Extended ASCII
+    literate      =        % Support additional characters
+      {á}{{\'a}}1  {é}{{\'e}}1  {í}{{\'i}}1 {ó}{{\'o}}1  {ú}{{\'u}}1
+      {Á}{{\'A}}1  {É}{{\'E}}1  {Í}{{\'I}}1 {Ó}{{\'O}}1  {Ú}{{\'U}}1
+      {à}{{\`a}}1  {è}{{\`e}}1  {ì}{{\`i}}1 {ò}{{\`o}}1  {ù}{{\`u}}1
+      {À}{{\`A}}1  {È}{{\`E}}1  {Ì}{{\`I}}1 {Ò}{{\`O}}1  {Ù}{{\`U}}1
+      {ä}{{\"a}}1  {ë}{{\"e}}1  {ï}{{\"i}}1 {ö}{{\"o}}1  {ü}{{\"u}}1
+      {Ä}{{\"A}}1  {Ë}{{\"E}}1  {Ï}{{\"I}}1 {Ö}{{\"O}}1  {Ü}{{\"U}}1
+      {â}{{\^a}}1  {ê}{{\^e}}1  {î}{{\^i}}1 {ô}{{\^o}}1  {û}{{\^u}}1
+      {Â}{{\^A}}1  {Ê}{{\^E}}1  {Î}{{\^I}}1 {Ô}{{\^O}}1  {Û}{{\^U}}1
+      {œ}{{\oe}}1  {Œ}{{\OE}}1  {æ}{{\ae}}1 {Æ}{{\AE}}1  {ß}{{\ss}}1
+      {ẞ}{{\SS}}1  {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {ø}{{\o}}1  {Ø}{{\O}}1
+      {å}{{\aa}}1  {Å}{{\AA}}1  {ã}{{\~a}}1  {õ}{{\~o}}1 {Ã}{{\~A}}1
+      {Õ}{{\~O}}1  {ñ}{{\~n}}1  {Ñ}{{\~N}}1  {¿}{{?`}}1  {¡}{{!`}}1
+      {„}{\quotedblbase}1 {“}{\textquotedblleft}1 {–}{$-$}1
+      {°}{{\textdegree}}1 {º}{{\textordmasculine}}1 {ª}{{\textordfeminine}}1
+      {£}{{\pounds}}1  {©}{{\copyright}}1  {®}{{\textregistered}}1
+      {«}{{\guillemotleft}}1  {»}{{\guillemotright}}1  {Ð}{{\DH}}1  {ð}{{\dh}}1
+      {Ý}{{\'Y}}1    {ý}{{\'y}}1    {Þ}{{\TH}}1    {þ}{{\th}}1    {Ă}{{\u{A}}}1
+      {ă}{{\u{a}}}1  {Ą}{{\k{A}}}1  {ą}{{\k{a}}}1  {Ć}{{\'C}}1    {ć}{{\'c}}1
+      {Č}{{\v{C}}}1  {č}{{\v{c}}}1  {Ď}{{\v{D}}}1  {ď}{{\v{d}}}1  {Đ}{{\DJ}}1
+      {đ}{{\dj}}1    {Ė}{{\.{E}}}1  {ė}{{\.{e}}}1  {Ę}{{\k{E}}}1  {ę}{{\k{e}}}1
+      {Ě}{{\v{E}}}1  {ě}{{\v{e}}}1  {Ğ}{{\u{G}}}1  {ğ}{{\u{g}}}1  {Ĩ}{{\~I}}1
+      {ĩ}{{\~\i}}1   {Į}{{\k{I}}}1  {į}{{\k{i}}}1  {İ}{{\.{I}}}1  {ı}{{\i}}1
+      {Ĺ}{{\'L}}1    {ĺ}{{\'l}}1    {Ľ}{{\v{L}}}1  {ľ}{{\v{l}}}1  {Ł}{{\L{}}}1
+      {ł}{{\l{}}}1   {Ń}{{\'N}}1    {ń}{{\'n}}1    {Ň}{{\v{N}}}1  {ň}{{\v{n}}}1
+      {Ő}{{\H{O}}}1  {ő}{{\H{o}}}1  {Ŕ}{{\'{R}}}1  {ŕ}{{\'{r}}}1  {Ř}{{\v{R}}}1
+      {ř}{{\v{r}}}1  {Ś}{{\'S}}1    {ś}{{\'s}}1    {Ş}{{\c{S}}}1  {ş}{{\c{s}}}1
+      {Š}{{\v{S}}}1  {š}{{\v{s}}}1  {Ť}{{\v{T}}}1  {ť}{{\v{t}}}1  {Ũ}{{\~U}}1
+      {ũ}{{\~u}}1    {Ū}{{\={U}}}1  {ū}{{\={u}}}1  {Ů}{{\r{U}}}1  {ů}{{\r{u}}}1
+      {Ű}{{\H{U}}}1  {ű}{{\H{u}}}1  {Ų}{{\k{U}}}1  {ų}{{\k{u}}}1  {Ź}{{\'Z}}1
+      {ź}{{\'z}}1    {Ż}{{\.Z}}1    {ż}{{\.z}}1    {Ž}{{\v{Z}}}1  {ž}{{\v{z}}}1
+      % ¿ and ¡ are not correctly displayed if inconsolata font is used
+      % together with the lstlisting environment. Consider typing code in
+      % external files and using \lstinputlisting to display them instead.      
 }
 
 \lstset{style=mystyle}
@@ -78,7 +119,7 @@
 
 \vfill
 
-{Ecole Centrale de Nantes - Systèmes embarqués Communicants (SEC)}
+{École Centrale de Nantes - Systèmes embarqués Communicants (SEC)}
 \end{titlepage}
 
 % Clear all headers and footers (see also \fancyhf{})
@@ -120,7 +161,7 @@ Nous conclurons ce rendu en mettant en lumière les différentes compétences so
 
 \clearpage
 
-\section{Création d'une classe point template}
+\section{Création d'une classe Point}
 Dans cette première partie, nous allons initialiser le premier template de notre projet : la classe Point.
 Pour rappel, voici le cahier des charges associé à cette classe :
 
@@ -134,8 +175,66 @@ Pour rappel, voici le cahier des charges associé à cette classe :
 Par conséquent, on crée un fichier .hpp afin de répondre au cahier des charges :
 
 \begin{lstlisting}[language=C++, caption=Fichier PointT.hpp]
-Ctrl C + Ctrl V le code ICI
+#pragma once
+
+// Bibliotheques
+#include <iostream>
+
+template <typename T>
+class PointT;
+
+template <typename T>
+std::ostream &operator<<(std::ostream &, PointT<T> const &);
+
+// Classe Point, a partir d'un template 'T'
+template <typename T>
+class PointT
+{
+protected:
+    T x;
+    T y;
+
+public:
+    // Constructeurs
+    PointT(T x, T y) // Creation d'un point en fonction de x et de y
+    {
+        this->x = x;
+        this->y = y;
+    }
+
+    //Constructeur de copie
+    PointT(const PointT<T> &arg) {
+        this->x = arg.x;
+        this->y = arg.y;
+    }
+
+    // Accesseurs
+    T getX() const { return x; }
+    T getY() const { return y; }
+
+    // Mutateurs
+    T setX(T new_x) { x = new_x; }
+    T setY(T new_y) { y = new_y; }
+
+    // Methodes
+    // Fonction de translation de la classe PointT, prend en argument deux coordonnees du meme type
+    T translater(const T &dx, const T &dy)
+    {
+        this->x += dx;
+        this->y += dy;
+    }
+};
+
+// Surcharge operateur cout, pour afficher un point
+template <typename T>
+std::ostream &operator<<(std::ostream &o, const PointT<T> &arg)
+{
+    o << "(" << "Nom :" << arg.getP() << ", " << "X :" << arg.getX() << ", " << "Y :" << arg.getY() << ")" << std::endl;
+    return o;
+}
 \end{lstlisting}
+
+Le code devant être entièrement dans le fichier .hpp pour pouvoir compiler, nous prenons la liberté d'implémenter les fonctions directement à la déclaration.
 
 On ajoute ensuite des jeux de test afin de valider le bon fonctionnement du programme :
 
@@ -143,77 +242,250 @@ On ajoute ensuite des jeux de test afin de valider le bon fonctionnement du prog
 \rule{16cm}{1pt}
 \end{center}
 
-\textbf{Donnée d'entrée : } NA
+\textbf{Résultat attendu : } 
+\begin{lstlisting}[]
+Point p1 (constructeur parametre) : (X :2, Y :3)
+
+Point p2 (constructeur de copie a partir de p1) : (X :2, Y :3)
+
+Abscisse de p1 : 2
+Ordonnee de p1 : 3
+p1 apres modification via les mutateurs : (X :10, Y :20)
+
+Translation de p1 de ( -3 , +5 )... p1 apres translation : (X :7, Y :25)
+
+p3 : (X :0, Y :0)
+
+p3 apres translation (4.5, -2.5) : (X :4.5, Y :-2.5)
+\end{lstlisting}
 
 \rule{4cm}{0,2pt}
 
-\textbf{Résultat attendu : } NA
+\textbf{Résultat obtenu : }
+\begin{lstlisting}[]
+Point p1 (constructeur parametre) : (X :2, Y :3)
 
-\rule{4cm}{0,2pt}
+Point p2 (constructeur de copie a partir de p1) : (X :2, Y :3)
 
-\textbf{Résultat obtenu : } NA
+Abscisse de p1 : 2
+Ordonnee de p1 : 3
+p1 apres modification via les mutateurs : (X :10, Y :20)
+
+Translation de p1 de ( -3 , +5 )... p1 apres translation : (X :7, Y :25)
+
+p3 : (X :0, Y :0)
+
+p3 apres translation (4.5, -2.5) : (X :4.5, Y :-2.5)
+\end{lstlisting}
 
 \begin{center}
 \rule{16cm}{1pt}
 \end{center}
 
-On peut donc valider que la classe fonctionne comme attendue.
+On peut donc valider que la classe fonctionne comme attendu.
 
 \clearpage
 
 \section{Formes géométriques abstraites}
 Dans cette seconde partie, nous allons créer une classe afin de manipuler une forme, constituée de points. 
-L'objectif est de réaliser une forme centrée sur un point particulier (initialisé dans la partie précédente).
+L'objectif est de réaliser une forme centrée sur un point particulier (créé dans la partie précédente).
 Pour rappel, voici les instructions données dans le sujet de TP associées à cette classe :
 \rule{4cm}{1pt}
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{Ressources/CDC partie 2.png}
-    \caption{Cahier des charges partie 1}
+    \caption{Cahier des charges partie 2}
 \end{figure}
 
 Par conséquent, on crée un fichier .hpp afin de répondre au cahier des charges :
 
 \begin{lstlisting}[language=C++, caption=Fichier Forme.hpp]
-Ctrl C + Ctrl V le code ICI
+#pragma once
+
+#include "PointT.hpp"
+#include <iostream>
+#include <array>
+
+// C++ 14: types par défaut dans les templates
+template <typename TPoint, typename TPerimetre = float, typename TSurface = float>
+class Forme;
+
+template <typename T>
+std::ostream &operator<<(std::ostream &, Forme<T> const &);
+
+// Classe forme
+template <typename TPoint, typename TPerimetre, typename TSurface>
+class Forme
+{
+private:
+    PointT<TPoint> centre; // Centre de la forme
+
+public:
+    // Constructeurs
+    Forme(PointT<TPoint> const & p); // Création d'une forme en fonction d'un point P
+
+    // Accesseurs
+    PointT<TPoint> getPoint() {return centre;}
+
+    // Mutateurs
+    void setCentre(PointT<TPoint> value);
+
+    // Méthodes
+    virtual TPerimetre perimetre() = 0; // Périmètre de la forme, fonction virtuelle
+
+    virtual TSurface surface() = 0; // Aire de la surface, fonction virtuelle
+
+    virtual std::array<PointT<TPoint>, 4> boundingBox() = 0; // Liste des points, fonction virtuelle
+
+    friend std::ostream &operator<< <TPoint>(std::ostream &, Forme const &);
+};
+
+// Création d'une forme en fonction d'un point P
+template <typename TPoint, typename TPerimetre, typename TSurface>
+Forme<TPoint, TPerimetre, TSurface>::Forme(PointT<TPoint>const & p) : centre(p)
+{
+}
+
+// Surcharge de l'opérateur cout, pour afficher un point
+template <typename TPoint, typename TPerimetre, typename TSurface>
+std::ostream &operator<<(std::ostream &o, Forme<TPoint, TPerimetre, TSurface> const &R)
+{
+    o << "(" << R.getPoint().getX() << "," << R.getPoint().getY() << ")" << std::endl;
+    return o;
+}
 \end{lstlisting}
 
-On ajoute ensuite des jeux de test afin de valider le bon fonctionnement du programme :
-
-\begin{center}
-\rule{16cm}{1pt}
-\end{center}
-
-\textbf{Donnée d'entrée : } NA
-
-\rule{4cm}{0,2pt}
-
-\textbf{Résultat attendu : } NA
-
-\rule{4cm}{0,2pt}
-
-\textbf{Résultat obtenu : } NA
-
-\begin{center}
-\rule{16cm}{1pt}
-\end{center}
-
-On peut donc valider que la classe fonctionne comme attendue.
+Cette classe étant abstraite, elle ne peut pas être instanciée et donc testée directement.
 
 \clearpage
 
 \section{Formes géométriques concrètes}
 On veut ici réaliser des formes géométriques concrètes. C'est-à-dire une forme constituée de points, avec une longueur et une hauteur donnée.
-On va créer ici deux classes (rectangle et carré, avec notion d'héritage pour cette dernière).
+On va créer ici deux classes : rectangle et carré.
 
 On crée donc deux fichiers .hpp :
 
 \begin{lstlisting}[language=C++, caption=Fichier Rectangle.hpp]
-Ctrl C + Ctrl V le code ICI
+#pragma once
+
+#include "PointT.hpp"
+#include "Forme.hpp"
+#include <iostream>
+#include <array>
+
+template <typename TPoint, typename TPerimetre = float, typename TSurface = float>
+class Rectangle;
+
+template <typename T>
+std::ostream &operator<<(std::ostream &, Rectangle<T> &);
+
+// Classe Rectangle, dérivée de la classe forme
+// C++ 14: types par défaut dans les templates
+template <typename TPoint, typename TPerimetre, typename TSurface>
+class Rectangle : public Forme<TPoint, TPerimetre, TSurface>
+{
+private:
+    TPoint h; // Hauteur du rectangle
+    TPoint l; // Largeur du rectangle
+
+public:
+    // Constructeurs
+    Rectangle() : Forme<TPoint>(), h(TPoint()), l(TPoint()) {};
+    Rectangle(PointT<TPoint> const &p, TPoint h, TPoint l) : Forme<TPoint>(p), h(h), l(l) {}
+
+    // Accesseurs
+    TPoint getH() const { return this->h; }
+    TPoint getL() const { return this->l; }
+
+    // Mutateurs
+    void setH(TPoint h) { this->h = h; }
+    void setL(TPoint l) { this->l = l; }
+
+    // Méthodes
+    std::array<PointT<TPoint>, 4> boundingBox() override
+    {
+        TPoint x0 = this->getPoint().getX();
+        TPoint y0 = this->getPoint().getY();
+        TPoint x1 = x0 + l;
+        TPoint y1 = y0 + h;
+
+        return {PointT<TPoint>(x0, y0),
+                PointT<TPoint>(x1, y0),
+                PointT<TPoint>(x1, y1),
+                PointT<TPoint>(x0, y1)};
+    }
+
+    TPerimetre perimetre() override {
+        return (2*h)+(2*l);
+    }
+
+    TSurface surface() override {
+        return h*l;
+    }
+};
+
+template <typename T>
+std::ostream &operator<<(std::ostream &o, Rectangle<T> &R)
+{
+    o << "(" << R.getPoint().getX() << "," << R.getPoint().getY() << "), " << R.getH() << "," << R.getL() << std::endl;
+    return o;
+}
+
 \end{lstlisting}
 
 \begin{lstlisting}[language=C++, caption=Fichier Carre.hpp]
-Ctrl C + Ctrl V le code ICI
+#pragma once
+
+#include "Rectangle.hpp"
+#include <iostream>
+
+template <typename TPoint, typename TPerimetre = float, typename TSurface = float>
+class Carre;
+
+template <typename T>
+std::ostream &operator<<(std::ostream &, Carre<T> const &);
+
+// Classe Carré héritée de Rectangle, on force la largeur et la hauteur à la même valeur
+template <typename TPoint, typename TPerimetre, typename TSurface>
+class Carre : public Rectangle<TPoint, TPerimetre, TSurface>
+{
+public:
+    // Constructeurs
+    Carre() : Rectangle<TPoint>() {}
+    Carre(PointT<TPoint> const &p, TPoint cote) : Rectangle<TPoint>(p, cote, cote) {}
+    virtual ~Carre() = default;
+
+    // Accesseur
+    TPoint getCote() const { return this->getH(); }
+
+    // Mutateur
+    void setCote(TPoint cote)
+    {
+        Rectangle<TPoint>::setH(cote);
+        Rectangle<TPoint>::setL(cote);
+    }
+
+    // Redéfinition des mutateurs de Rectangle pour conserver l'invariant du carré
+    TPoint setH(TPoint h)
+    {
+        setCote(h);
+        return h;
+    }
+    TPoint setL(TPoint l)
+    {
+        setCote(l);
+        return l;
+    }
+};
+
+// Surcharge de l'opérateur d'affichage pour la classe Carre
+template <typename T>
+std::ostream &operator<<(std::ostream &o, Carre<T> const &c)
+{
+    o << "Carré: origine=(" << c.getPoint().getX() << "," << c.getPoint().getY()
+      << "), cote=" << c.getCote();
+    return o;
+}
 \end{lstlisting}
 
 On ajoute ensuite des jeux de test afin de valider le bon fonctionnement du programme :
@@ -222,21 +494,146 @@ On ajoute ensuite des jeux de test afin de valider le bon fonctionnement du prog
 \rule{16cm}{1pt}
 \end{center}
 
-\textbf{Donnée d'entrée : } NA
+\textbf{Résultat attendu : }
+
+Rectangle r1 : (0,0), 10,5
+
+Périmètre : 30
+Surface   : 50
+
+Carré c1 : Carré: origine=(3,4), cote=6
+Périmètre : 24
+Surface   : 36
 
 \rule{4cm}{0,2pt}
 
-\textbf{Résultat attendu : } NA
+\textbf{Résultat obtenu : } 
 
-\rule{4cm}{0,2pt}
+Rectangle r1 : (0,0), 10,5
 
-\textbf{Résultat obtenu : } NA
+Périmètre : 30
+Surface   : 50
+
+Carré c1 : Carré: origine=(3,4), cote=6
+Périmètre : 24
+Surface   : 36
 
 \begin{center}
 \rule{16cm}{1pt}
 \end{center}
 
-On peut donc valider que la classe fonctionne comme attendue.
+On peut donc valider que ces classes fonctionnent comme attendu.
+
+\clearpage
+
+\section{Liste de Formes}
+On veut créer une classe stockant une liste de formes et permettant d'effectuer quelques opérations simples.
+
+On crée donc un fichier .hpp :
+
+\begin{lstlisting}[language=C++, caption=Fichier ListeFormes.hpp]
+#pragma once
+
+#include <vector>
+#include <limits>
+#include "Forme.hpp"
+#include "Rectangle.hpp"
+
+template <typename TPoint, typename TPerimetre = float, typename TSurface = float>
+class ListeFormes
+{
+private:
+    std::vector<Forme<TPoint, TPerimetre, TSurface>*> formes;
+
+public:
+
+    // Ajouter une forme dans la liste
+    void ajouter(Forme<TPoint, TPerimetre, TSurface>* f) {
+        formes.push_back(f);
+    }
+
+    std::size_t taille() const {
+        return formes.size();
+    }
+
+    Forme<TPoint, TPerimetre, TSurface>* operator[](std::size_t i) {
+        return formes[i];
+    }
+
+    // Surface totale de toutes les formes
+    TSurface surfaceTotale() const {
+        TSurface total{};
+        for (auto f : formes)
+            total += f->surface();
+        return total;
+    }
+
+    // Boîte englobante exprimée sous forme de rectangle
+    Rectangle<TPoint, TPerimetre, TSurface> boundingBox() const {
+
+        if (formes.empty()) {
+            return Rectangle<TPoint, TPerimetre, TSurface>(
+                PointT<TPoint>(0,0), 0, 0
+            );
+        }
+
+        TPoint xmin = std::numeric_limits<TPoint>::max();
+        TPoint ymin = std::numeric_limits<TPoint>::max();
+        TPoint xmax = std::numeric_limits<TPoint>::lowest();
+        TPoint ymax = std::numeric_limits<TPoint>::lowest();
+
+        // On visite la boundingBox (4 sommets) de chaque forme
+        for (auto f : formes) {
+            auto bb = f->boundingBox();   // array<4 points>
+
+            for (const auto& pt : bb) {
+                xmin = std::min(xmin, pt.getX());
+                ymin = std::min(ymin, pt.getY());
+                xmax = std::max(xmax, pt.getX());
+                ymax = std::max(ymax, pt.getY());
+            }
+        }
+
+        // Construire le rectangle final
+        return Rectangle<TPoint, TPerimetre, TSurface>(
+            PointT<TPoint>(xmin, ymin),     // Coin bas gauche
+            ymax - ymin,                    // Hauteur
+            xmax - xmin                     // Largeur
+        );
+    }
+};
+
+\end{lstlisting}
+
+On ajoute ensuite des jeux de test afin de valider le bon fonctionnement du programme :
+
+\begin{center}
+\rule{16cm}{1pt}
+\end{center}
+
+\textbf{Résultat attendu : }
+
+Boîte englobante :
+(0,0)
+(20,0)
+(20,11)
+(0,11)
+
+\rule{4cm}{0,2pt}
+
+\textbf{Résultat obtenu : } 
+
+Boîte englobante :
+(0,0)
+(20,0)
+(20,11)
+(0,11)
+
+\begin{center}
+\rule{16cm}{1pt}
+\end{center}
+
+On peut donc valider que cette classe fonctionne comme attendu.
 
 \clearpage
 
