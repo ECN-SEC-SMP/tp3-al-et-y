@@ -36,22 +36,31 @@ public:
     T getY() const { return y; }
 
     // Mutateurs
-    T setX(T new_x) { x = new_x; }
-    T setY(T new_y) { y = new_y; }
+    void setX(T new_x) { x = new_x; }
+    void setY(T new_y) { y = new_y; }
 
     // Méthodes
     // Fonction de translation de la classe PointT, prend en argument deux coordonnées du même type
-    T translater(const T &dx, const T &dy)
+    void translater(const T &dx, const T &dy)
     {
         this->x += dx;
         this->y += dy;
     }
 };
 
+// SPÉCIALISATION DE LA MÉTHODE translater POUR std::string
+template<>
+void PointT<std::string>::translater(const std::string &dx, const std::string &dy) {
+    std::string nx = dx;
+    std::string ny = dy;
+    std::swap(x, nx);
+    std::swap(y, ny);
+}
+
 // Surcharge opérateur cout, pour afficher un point
 template <typename T>
 std::ostream &operator<<(std::ostream &o, const PointT<T> &arg)
 {
-    o << "(" << "Nom :" << arg.getP() << ", " << "X :" << arg.getX() << ", " << "Y :" << arg.getY() << ")" << std::endl;
+    o << "(X :" << arg.getX() << ", " << "Y :" << arg.getY() << ")" << std::endl;
     return o;
 }

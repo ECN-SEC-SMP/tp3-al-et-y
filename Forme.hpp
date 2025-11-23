@@ -2,51 +2,52 @@
 
 #include "PointT.hpp"
 #include <iostream>
+#include <array>
 
-template <typename T>
+// C++ 14: types par défaut dans les templates
+template <typename TPoint, typename TPerimetre = float, typename TSurface = float>
 class Forme;
 
 template <typename T>
 std::ostream &operator<<(std::ostream &, Forme<T> const &);
 
-// Classe forme, associée à la classe point
-template <typename T>
+// Classe forme
+template <typename TPoint, typename TPerimetre, typename TSurface>
 class Forme
 {
 private:
-    PointT<T> centre; // Centre de la forme
+    PointT<TPoint> centre; // Centre de la forme
 
 public:
     // Constructeurs
-    Forme(PointT<T> p); // Création d'une forme en fonction d'un point P
+    Forme(PointT<TPoint> const & p); // Création d'une forme en fonction d'un point P
 
     // Accesseurs
-    PointT<T> getCentre();
+    PointT<TPoint> getPoint() {return centre;}
 
     // Mutateurs
-    void setCentre(PointT<T> value);
+    void setCentre(PointT<TPoint> value);
 
     // Méthodes
-    //template <typename TPerimetre>
-    //virtual TPerimetre perimetre() = 0; // Périmètre de la forme, fonction virtuelle
+    virtual TPerimetre perimetre() = 0; // Périmètre de la forme, fonction virtuelle
 
-    //template <typename TSurface>
-    //virtual TSurface surface() = 0; // Aire de la surface, fonction virtuelle
+    virtual TSurface surface() = 0; // Aire de la surface, fonction virtuelle
 
-    friend std::ostream &operator<< <T>(std::ostream &, Forme const &);
+    virtual std::array<PointT<TPoint>, 4> boundingBox() = 0; // Liste des points, fonction virtuelle
+
+    friend std::ostream &operator<< <TPoint>(std::ostream &, Forme const &);
 };
 
 // Création d'une forme en fonction d'un point P
-template <typename T>
-Forme<T>::Forme(PointT<T> p)
+template <typename TPoint, typename TPerimetre, typename TSurface>
+Forme<TPoint, TPerimetre, TSurface>::Forme(PointT<TPoint>const & p) : centre(p)
 {
-    centre = p;
 }
 
 // Surcharge de l'opérateur cout, pour afficher un point
-template <typename T>
-std::ostream &operator<<(std::ostream &o, Forme<T> const &R)
+template <typename TPoint, typename TPerimetre, typename TSurface>
+std::ostream &operator<<(std::ostream &o, Forme<TPoint, TPerimetre, TSurface> const &R)
 {
-    o << "(" << R.getCentre().getX() << "," << R.getCentre().getY() << ")" << std::endl;
+    o << "(" << R.getPoint().getX() << "," << R.getPoint().getY() << ")" << std::endl;
     return o;
 }

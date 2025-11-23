@@ -3,39 +3,39 @@
 #include "Rectangle.hpp"
 #include <iostream>
 
-template <typename T>
+template <typename TPoint, typename TPerimetre = float, typename TSurface = float>
 class Carre;
 
 template <typename T>
-std::ostream &operator<<(std::ostream &, Carre<T> const &);
+std::ostream &operator<<(std::ostream &, Carre<T> &);
 
 // Classe Carré héritée de Rectangle, on force la largeur et la hauteur à la même valeur
-template <typename T>
-class Carre : public Rectangle<T>
+template <typename TPoint, typename TPerimetre, typename TSurface>
+class Carre : public Rectangle<TPoint, TPerimetre, TSurface>
 {
 public:
     // Constructeurs
-    Carre() : Rectangle<T>() {}
-    Carre(PointT<T> const &p, T cote) : Rectangle<T>(p, cote, cote) {}
+    Carre() : Rectangle<TPoint>() {}
+    Carre(PointT<TPoint> const &p, TPoint cote) : Rectangle<TPoint>(p, cote, cote) {}
     virtual ~Carre() = default;
 
     // Accesseur
-    T getCote() const { return this->getH(); }
+    TPoint getCote() const { return this->getH(); }
 
     // Mutateur
-    void setCote(T cote)
+    void setCote(TPoint cote)
     {
-        Rectangle<T>::setH(cote);
-        Rectangle<T>::setL(cote);
+        Rectangle<TPoint>::setH(cote);
+        Rectangle<TPoint>::setL(cote);
     }
 
-    // Redéfinition (cache/hide) des mutateurs de Rectangle pour conserver l'invariant du carré
-    T setH(T h)
+    // Redéfinition des mutateurs de Rectangle pour conserver l'invariant du carré
+    TPoint setH(TPoint h)
     {
         setCote(h);
         return h;
     }
-    T setL(T l)
+    TPoint setL(TPoint l)
     {
         setCote(l);
         return l;
@@ -44,7 +44,7 @@ public:
 
 // Surcharge de l'opérateur d'affichage pour la classe Carre
 template <typename T>
-std::ostream &operator<<(std::ostream &o, Carre<T> const &c)
+std::ostream &operator<<(std::ostream &o, Carre<T> &c)
 {
     o << "Carré: origine=(" << c.getPoint().getX() << "," << c.getPoint().getY()
       << "), cote=" << c.getCote();
