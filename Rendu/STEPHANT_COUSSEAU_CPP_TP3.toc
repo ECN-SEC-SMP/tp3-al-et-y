@@ -1,0 +1,7 @@
+\babel@toc {nil}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{1}{}%
+\contentsline {section}{\numberline {2}Création d'une classe Point}{2}{}%
+\contentsline {section}{\numberline {3}Formes géométriques abstraites}{5}{}%
+\contentsline {section}{\numberline {4}Formes géométriques concrètes}{7}{}%
+\contentsline {section}{\numberline {5}Liste de Formes}{10}{}%
+\contentsline {section}{\numberline {6}Conclusion}{11}{}%
