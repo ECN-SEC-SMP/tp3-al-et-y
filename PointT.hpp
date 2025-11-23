@@ -25,7 +25,11 @@ public:
         this->y = y;
     }
 
-    PointT(const PointT<T> &arg, T x, T y);
+    //Constructeur de copie
+    PointT(const PointT<T> &arg) {
+        this->x = arg.x;
+        this->y = arg.y;
+    }
 
     // Accesseurs
     T getX() const { return x; }
